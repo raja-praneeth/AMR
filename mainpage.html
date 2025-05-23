@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A M R</title>
+  <!-- Google Fonts  nunchi lagesam -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for social icons edhi kuda google -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Google Sans', sans-serif;
+      background: rgb(255, 255, 255);
+      color: rgb(32, 33, 36);
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      width: 100%;
+      height: 10vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2vh 4vh;
+      border-bottom: 3px solid rgb(32, 33, 36);
+      
+      top: 0;
+      z-index: 1000;
+    }
+
+    #logo {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    #navitems {
+      display: flex;
+      gap: 20px;
+    }
+
+    #navitems a {
+      text-decoration: none;
+      color: rgb(32, 33, 36);
+      font-size: 18px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s ease;
+    }
+
+    #navitems a:hover {
+      background-color: rgba(128, 128, 128, 0.2);
+      transform: scale(1.05);
+    }
+
+    #heropage video {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    .togosection {
+      background-color: rgb(255, 255, 255);
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 5vh 2vw;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .togosection.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .togosection h2 {
+      font-size: 8vh;    
+      margin-bottom: 1rem;
+    }
+
+    #changecolor {
+      color: #4285f4;
+    }
+
+    #containerforheading {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+   
+    #containerforinfo {
+      width: 90vw;
+      font-size: 6vh;
+      margin: 2rem 0;
+    }
+
+    .togosection a button {
+      background-color: rgb(66, 133, 244);
+      border-radius: 40px;
+      padding: 12px 28px;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .togosection a button:hover {
+      background-color: rgb(51, 103, 214);
+    }
+
+    .site-footer {
+      background: rgb(236, 239, 241);
+      color: rgb(32, 33, 36);
+      padding: 40px 80px;
+      font-size: 14px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .follow-us {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .follow-us span {
+      font-weight: 500;
+    }
+
+    .follow-us a {
+      font-size: 20px;
+      color: rgb(32, 33, 36);
+      transition: color 0.3s;
+    }
+
+    .follow-us a:hover {
+      color: rgb(26, 115, 232);
+    }
+
+    .connections {
+      max-width: 400px;
+    }
+
+    .connections-title {
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .connections ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .connections li {
+      margin-bottom: 8px;
+    }
+
+    .connections a {
+      color: rgb(32, 33, 36);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .connections a:hover {
+      color: rgb(26, 115, 232);
+    }
+
+    .site-footer hr {
+      border: none;
+      border-top: 1px solid rgb(218, 220, 224);
+      margin: 20px 0;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 13px;
+      color: rgb(85, 85, 85);
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <div id="logo">AMR</div>
+    <div id="navitems">
+      <a href="mainpage.html">HOME</a>
+      <a href="aboutus.html">ABOUT US</a>
+      <a href="aftermainpage.html">LOGIN</a>
+    </div>
+  </header>
+
+  <section id="heropage">
+    <video src="https://arvr.google.com/static/video/hero.mp4" autoplay loop muted playsinline></video>
+  </section>
+
+  <section class="togosection">
+    <div id="containerforheading">
+      <h2>Introducing</h2>
+      <h2 id="changecolor">WEB AR</h2>
+    </div>
+    <div id="containerforinfo">
+      The only solution to improving your ability to visualize 3D objects in the space around you is to enhance spatial awareness through practice and observation. Strengthening this skill helps in better understanding shapes, dimensions, and their orientation in real-world environments.
+    </div>
+    <a href="2ndpage.html"><button>Click for More Info</button></a>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="follow-us">
+        <span>Follow us</span>
+        <a href="https://www.instagram.com/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="connections">
+        <div class="connections-title">Get a new look on how you view objects</div>
+        <ul>
+          <li><a href="#">AMR Website</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="copyright">
+      &copy; 2025 AMR Web AR Project — Built by Anikait, Raja Praneeth & Midhun
+    </div>
+  </footer>
+
+  <script>
+    //scroll chesthe niku slide avuthai for all to go section
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    document.querySelectorAll('.togosection').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

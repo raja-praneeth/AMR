@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What is Web AR | AMR</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #eee;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      min-height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      background: linear-gradient(to bottom, #1f0036, #3c1053);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      background: linear-gradient(45deg, #e100ff, #7f00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 1rem;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      margin-bottom: 3rem;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #c77dff;
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    li {
+      margin-bottom: 1rem;
+    }
+
+    .continue-button {
+      display: flex;
+      justify-content: center;
+      margin: 3rem auto;
+    }
+
+    .continue-button a {
+      background: linear-gradient(to right, #7f00ff, #e100ff);
+      color: white;
+      padding: 14px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .continue-button a:hover {
+      background: linear-gradient(to right, #e100ff, #7f00ff);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #bbb;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.95rem;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Web AR: Augmented Reality </h1>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>What is Web AR?</h2>
+      <p>
+        Web AR (Web-based Augmented Reality) is a cutting-edge technology that allows users to experience augmented reality directly in a web browser — without downloading any apps. It combines camera input, 3D models, and spatial tracking to overlay digital content into the real-world environment.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Why Web AR?</h2>
+      <p>
+        Traditional AR experiences often require native apps, which limit accessibility. Web AR makes AR experiences available instantly across devices, reaching a wider audience.
+      </p>
+      <ul>
+        <li>No app downloads or installations</li>
+        <li>Cross-platform (Android, iOS, desktop)</li>
+        <li>Instant load and share via URL</li>
+        <li>Ideal for education, retail, product demos, and architecture</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Our Project</h2>
+      <p>
+        We built a full Web AR experience where users can place 3D objects in their real-world space using just a browser. Our system overlays these objects using the device’s camera and lets users interact with them in real-time.
+      </p>
+      <ul>
+        <li>Live camera feed with overlay</li>
+        <li>3D models rendered interactively</li>
+        <li>Touch and drag to reposition objects</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Technologies Used</h2>
+      <ul>
+        <li><strong>HTML/CSS/JS</strong> Frontend, styling, and behavior</li>
+        <li><strong>&lt;model-viewer&gt;</strong>  3D model visualization</li>
+        <li><strong>WebXR / getUserMedia</strong>  Camera and AR APIs</li>
+        <li>JavaScript logic for search, login, and interface control</li>
+      </ul>
+    </section>
+
+    <div class="continue-button">
+      <a href="aftermainpage.html">login to Continue</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 AMR Web AR Project — Built by Anikait, Raja Praneeth & Midhun
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>

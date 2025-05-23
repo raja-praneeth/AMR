@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A M R</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background: black;
+            color: white;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .row {
+            font-size: 2rem;
+            font-weight: bold;
+            position: absolute;
+            white-space: nowrap;
+            animation: moveLeft 20s linear infinite;
+            top: calc(100vh * var(--i) / 20);
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .row:nth-child(even) {
+            animation-name: moveRight;
+        }
+        /* both imp
+        kani move left and right avasaram*/
+        @keyframes moveLeft {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        @keyframes moveRight {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.href = "lastpage.html";
+            }, 2000);
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Gmultiple rows generate chesthadhi-->
+        <script>
+            for (let i = 0; i < 20; i++) {
+                const row = document.createElement('div');
+                row.classList.add('row');
+                row.style.setProperty('--i', i);
+                row.textContent = 'AMR '.repeat(50);
+                document.body.appendChild(row);
+            }
+        </script>
+    </div>
+</body>
+</html>

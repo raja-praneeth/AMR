@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A M R</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+header.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.glitch-btn, .glitch-btn::after {
+  padding: 10px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: transparent;
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.glitch-btn::after {
+  --move1: inset(50% 50% 50% 50%);
+  --move2: inset(31% 0 40% 0);
+  --move3: inset(39% 0 15% 0);
+  --move4: inset(45% 0 40% 0);
+  --move5: inset(45% 0 6% 0);
+  --move6: inset(14% 0 61% 0);
+  clip-path: var(--move1);
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  text-align: center;
+}
+
+.glitch-btn:hover::after {
+  animation: glitch_4011 1s;
+  animation-timing-function: steps(2, end);
+  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
+  background-color: transparent;
+  border: 3px solid rgb(0, 255, 213);
+}
+
+.glitch-btn:hover {
+  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
+  background-color: transparent;
+  border: 1px solid rgb(0, 255, 213);
+  box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
+}
+
+@keyframes glitch_4011 {
+  0% { clip-path: var(--move1); transform: translate(0px,-10px); }
+  10% { clip-path: var(--move2); transform: translate(-10px,10px); }
+  20% { clip-path: var(--move3); transform: translate(10px,0px); }
+  30% { clip-path: var(--move4); transform: translate(-10px,10px); }
+  40% { clip-path: var(--move5); transform: translate(10px,-10px); }
+  50% { clip-path: var(--move6); transform: translate(-10px,10px); }
+  60% { clip-path: var(--move1); transform: translate(10px,-10px); }
+  70% { clip-path: var(--move3); transform: translate(-10px,10px); }
+  80% { clip-path: var(--move2); transform: translate(10px,-10px); }
+  90% { clip-path: var(--move4); transform: translate(-10px,10px); }
+  100% { clip-path: var(--move1); transform: translate(0); }
+}
+
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  perspective: 1000px;
+  margin: auto;
+  margin-top: 100px;
+  z-index: 1;
+}
+
+.form-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper form {
+  width: 100%;
+  padding: 40px;
+}
+
+.wrapper .sign-up {
+  transform: rotateY(180deg);
+}
+
+.wrapper.animate-signUp .sign-in {
+  transform: rotateY(180deg);
+}
+
+.wrapper.animate-signUp .sign-up {
+  transform: rotateY(0deg);
+}
+
+h2 {
+  text-align: center;
+  color: #cf3a3a;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  position: relative;
+  margin: 25px 0;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  outline: none;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  padding: 0 5px;
+  color: #666;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -10px;
+  font-size: 12px;
+  color: #2196f3;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to right, #2196f3, #e91e63);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.sign-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.sign-link a {
+  color: #e91e63;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sign-link a:hover {
+  text-decoration: underline;
+}
+footer {
+      background: #111;
+      color: #bbb;
+      text-align: center;
+      padding: 1.5rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.9rem;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<video autoplay muted loop class="video-background">
+  <source src="vids/loginkarecording.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+
+
+<header class="navbar">
+  <div class="logo">A M R</div>
+  <div class="nav-buttons">
+    <a href="mainpage.html" class="glitch-btn" data-text="HOME">HOME</a>
+    
+  </div>
+</header>
+
+
+
+<div class="wrapper">
+  <!-- Sign In   edhi aythe matram slide mundhara-->
+  <div class="form-wrapper sign-in">
+    <form>
+      <h2>Log In</h2>
+      <div class="input-group">
+        <input type="text" id="login-username" required />
+        <label>Username</label>
+      </div>
+      <div class="input-group">
+        <input type="password" id="login-password" required />
+        <label>Password</label>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="sign-link">
+        <p>Don't have an account? <a href="#" class="signUp-link">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+
+  <!-- edhi Sign Up  kani edhi slide ayaka osthahdi -->
+
+  <div class="form-wrapper sign-up">
+    <form>
+      <h2>Sign Up</h2>
+      <div class="input-group">
+        <input type="text" id="signup-username" required />
+        <label>Username</label>
+      </div>
+      <div class="input-group">
+        <input type="email" id="signup-email" required />
+        <label>Email</label>
+      </div>
+      <div class="input-group">
+        <input type="password" id="signup-password" required />
+        <label>Password</label>
+      </div>
+      <button type="submit" class="btn">Sign Up</button>
+      <div class="sign-link">
+        <p>Already have an account? <a href="lastpage.html" class="signIn-link">Sign In</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+    &copy; 2025 AMR Web AR Project — Built by Anikait, Raja Praneeth & Midhun
+  </footer>
+
+
+
+<script>
+  const wrapper = document.querySelector('.wrapper');
+  const signUpLink = document.querySelector('.signUp-link');
+  const signInLink = document.querySelector('.signIn-link');
+
+  signUpLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    wrapper.classList.add('animate-signUp');
+  });
+
+  signInLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    wrapper.classList.remove('animate-signUp');
+  });
+
+  // message display chedayam kosem
+  function displayMessage(message, isError = false) {
+    const messageBox = document.createElement('div');
+    messageBox.textContent = message;
+    messageBox.style.color = isError ? 'red' : 'green';
+    messageBox.style.margin = '10px 0';
+    messageBox.style.textAlign = 'center';
+    const existingMessage = document.querySelector('.message-box');
+    if (existingMessage) existingMessage.remove();
+    messageBox.classList.add('message-box');
+    wrapper.insertBefore(messageBox, wrapper.firstChild);
+  }
+
+  // sign up cheyadaniki logic edhi 
+  document.querySelector('.sign-up form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const username = document.getElementById('signup-username').value;
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+
+    if (username && email && password) {
+      const userData = { username, email, password };
+      localStorage.setItem('user', JSON.stringify(userData));
+      displayMessage('Account created successfully! Please log in.');
+      wrapper.classList.remove('animate-signUp');
+    } else {
+      displayMessage('Please fill out all fields.', true);
+    }
+  });
+
+  // Login cheyadaniki logic edhi
+  document.querySelector('.sign-in form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+
+    if (storedUser && storedUser.username === username && storedUser.password === password) {
+      displayMessage(`Welcome back, ${username}! Redirecting...`);
+      setTimeout(() => {
+        window.location.href = 'loadpageforlast.html';
+      }, 1000);
+    } else {
+      displayMessage('Incorrect username or password.', true);
+    }
+  });
+</script>
+
+</body>
+</html>
